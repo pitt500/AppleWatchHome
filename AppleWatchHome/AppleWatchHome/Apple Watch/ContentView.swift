@@ -32,6 +32,7 @@ struct ContentView: View {
 
                             Image(apps[value%43])
                             .resizable()
+                            .cornerRadius(50)
                             .frame(
                                 width: 100,
                                 height: 100
