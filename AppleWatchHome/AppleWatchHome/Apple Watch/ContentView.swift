@@ -29,7 +29,9 @@ struct ContentView: View {
                     pinnedViews: [.sectionHeaders]
                 ) {
                     ForEach(0..<100) { value in
-                        Circle().fill(.white)
+
+                            Image(apps[value%43])
+                            .resizable()
                             .frame(
                                 width: 100,
                                 height: 100
