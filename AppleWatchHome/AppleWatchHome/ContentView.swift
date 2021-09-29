@@ -8,9 +8,45 @@
 import SwiftUI
 
 struct ContentView: View {
+    let gridItems = Array(
+        repeating: GridItem(
+            .fixed(100),
+            spacing: 10,
+            alignment: .leading
+        ),
+        count: 10
+    )
+
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        ZStack {
+            Color.black
+                .edgesIgnoringSafeArea([.all])
+            ScrollView([.horizontal, .vertical], showsIndicators: false) {
+                LazyVGrid(
+                    columns: gridItems,
+                    alignment: .center,
+                    spacing: 10,
+                    pinnedViews: [.sectionHeaders]
+                ) {
+                    ForEach(0..<100) { value in
+                        Circle().fill(.white)
+                            .frame(
+                                width: 100,
+                                height: 100
+                            )
+                            .offset(
+                                x: isEvenRow(value) ? 50 : 0,
+                                y: 0
+                            )
+
+                    }
+                }
+            }
+        }
+    }
+
+    func isEvenRow(_ value: Int) -> Bool {
+        return (value / gridItems.count) % 2 == 0
     }
 }
 
