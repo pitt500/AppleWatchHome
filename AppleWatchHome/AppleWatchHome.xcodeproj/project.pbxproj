@@ -53,9 +53,9 @@
 		B5CC8433270498D700DFB13B /* AppleWatchHome */ = {
 			isa = PBXGroup;
 			children = (
+				B5CC84452704C1C800DFB13B /* Apple Watch */,
 				B5CC844227049E2E00DFB13B /* Grids */,
 				B5CC8434270498D700DFB13B /* AppleWatchHomeApp.swift */,
-				B5CC8436270498D700DFB13B /* ContentView.swift */,
 				B5CC8438270498D800DFB13B /* Assets.xcassets */,
 				B5CC843A270498D800DFB13B /* Preview Content */,
 			);
@@ -76,6 +76,14 @@
 				B5CC844327049E4600DFB13B /* GridView.swift */,
 			);
 			path = Grids;
+			sourceTree = "<group>";
+		};
+		B5CC84452704C1C800DFB13B /* Apple Watch */ = {
+			isa = PBXGroup;
+			children = (
+				B5CC8436270498D700DFB13B /* ContentView.swift */,
+			);
+			path = "Apple Watch";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
