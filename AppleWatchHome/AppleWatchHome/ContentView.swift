@@ -1,8 +1,8 @@
 //
 //  ContentView.swift
-//  GeometryReaderDemo
+//  AppleWatchHome
 //
-//  Created by Pedro Rojas on 28/09/21.
+//  Created by Pedro Rojas on 29/09/21.
 //
 
 import SwiftUI
