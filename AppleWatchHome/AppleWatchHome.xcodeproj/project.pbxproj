@@ -11,6 +11,7 @@
 		B5CC8437270498D700DFB13B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC8436270498D700DFB13B /* ContentView.swift */; };
 		B5CC8439270498D800DFB13B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5CC8438270498D800DFB13B /* Assets.xcassets */; };
 		B5CC843C270498D800DFB13B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5CC843B270498D800DFB13B /* Preview Assets.xcassets */; };
+		B5CC844427049E4600DFB13B /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC844327049E4600DFB13B /* GridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		B5CC8436270498D700DFB13B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B5CC8438270498D800DFB13B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5CC843B270498D800DFB13B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B5CC844327049E4600DFB13B /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		B5CC8433270498D700DFB13B /* AppleWatchHome */ = {
 			isa = PBXGroup;
 			children = (
+				B5CC844227049E2E00DFB13B /* Grids */,
 				B5CC8434270498D700DFB13B /* AppleWatchHomeApp.swift */,
 				B5CC8436270498D700DFB13B /* ContentView.swift */,
 				B5CC8438270498D800DFB13B /* Assets.xcassets */,
@@ -65,6 +68,14 @@
 				B5CC843B270498D800DFB13B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B5CC844227049E2E00DFB13B /* Grids */ = {
+			isa = PBXGroup;
+			children = (
+				B5CC844327049E4600DFB13B /* GridView.swift */,
+			);
+			path = Grids;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5CC8437270498D700DFB13B /* ContentView.swift in Sources */,
+				B5CC844427049E4600DFB13B /* GridView.swift in Sources */,
 				B5CC8435270498D700DFB13B /* AppleWatchHomeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,7 +288,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,7 +317,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
