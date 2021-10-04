@@ -17,7 +17,7 @@ struct ContentView: View {
             spacing: spacing,
             alignment: .leading
         ),
-        count: 20
+        count: 30
     )
 
     let frameSize: CGPoint = CGPoint(x: UIScreen.main.bounds.size.width*0.5,y: UIScreen.main.bounds.size.height*0.5)
@@ -48,7 +48,7 @@ struct ContentView: View {
                                         height: 100
                                     )
                                     .scaleEffect(
-                                        distance(
+                                        scale(
                                             x: isEvenRow(value) ? proxy.frame(in: .global).midX + proxy.size.width/2 :
                                                 proxy.frame(in: .global).midX,
                                             y: proxy.frame(in: .global).midY,
@@ -56,10 +56,10 @@ struct ContentView: View {
                                         )
 
                                     )
-                                    .offset(
-                                        x: isEvenRow(value) ? proxy.size.width/2 : 0,
-                                        y: 0
-                                    )
+//                                    .offset(
+//                                        x: isEvenRow(value) ? proxy.size.width/2 : 0,
+//                                        y: 0
+//                                    )
 
                                 
 
@@ -78,7 +78,7 @@ struct ContentView: View {
         return (value / gridItems.count) % 2 == 0
     }
 
-    func distance(x: CGFloat, y: CGFloat, value: Int) -> CGFloat {
+    func scale(x: CGFloat, y: CGFloat, value: Int) -> CGFloat {
         let xDist = abs(x - frameSize.x)
         let yDist = abs(y - frameSize.y)
 
@@ -89,9 +89,9 @@ struct ContentView: View {
         //print("distance: \(apps[value]) ", result)
         //print("center: \(apps[value]) ", maxDistanceToCenter)
 
-        let total = min(abs(result - maxDistanceToCenter), maxDistanceToCenter*0.8)
+        let total = min(abs(result - maxDistanceToCenter), maxDistanceToCenter*0.7)
 
-        let finalResult = total/(maxDistanceToCenter) * 1.2
+        let finalResult = total/(maxDistanceToCenter) * 1.4
 
         return finalResult
     }
@@ -112,18 +112,15 @@ struct ContentView: View {
     }
 
     func distance2(x: CGFloat, y: CGFloat, value: Int) -> CGFloat {
+        //Fix crash with Slope
         let m = (frameSize.y - y)/(frameSize.x - x)
 
 
         let angle = abs(atan(m) * 180 / .pi)
 
 
-        print(apps[value], angle)
-
-//        let y2 = (y > frameSize.y) ? frameSize.y*2 : 0
-//        let x2 = (y2 - y)/m + x
-//        print(apps[value], m)
-//        return distance3(x: x2, y: y2, value: value)
+        //print("Angle: ", angle, apps[value])
+        //print("Slope: ", m, apps[value])
 
         let ipadAngle: CGFloat = 35
 
