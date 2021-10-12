@@ -26,6 +26,7 @@ struct AppleWatchView: View {
         ZStack {
             Color.black
                 .edgesIgnoringSafeArea([.all])
+            Axes()
             ScrollView([.horizontal, .vertical], showsIndicators: false) {
                 LazyVGrid(
                     columns: gridItems,
@@ -153,5 +154,23 @@ struct AppleWatchView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         AppleWatchView()
+    }
+}
+
+struct Axes: View {
+    var body: some View {
+
+        GeometryReader { geometry in
+            Path { path in
+                path.move(to: CGPoint(x: geometry.frame(in: .global).maxX, y: geometry.frame(in: .global).midY))
+                path.addLine(to: CGPoint(x: 0, y: geometry.frame(in: .global).midY))
+                path.move(to: CGPoint(x: geometry.frame(in: .global).midX, y: geometry.frame(in: .global).midY))
+                path.addLine(to: CGPoint(x: geometry.frame(in: .global).midX, y: geometry.frame(in: .global).maxY))
+
+                path.addLine(to: CGPoint(x: geometry.frame(in: .global).midX, y: geometry.frame(in: .global).minY - 60))
+
+            }
+            .stroke(Color.blue, lineWidth: 3)
+        }
     }
 }
