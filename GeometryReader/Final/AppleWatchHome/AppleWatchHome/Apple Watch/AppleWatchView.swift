@@ -73,41 +73,44 @@ struct AppleWatchView: View {
         apps[value%apps.count]
     }
 
+    var center: CGPoint {
+        CGPoint(
+            x: UIScreen.main.bounds.size.width*0.5,
+            y: UIScreen.main.bounds.size.height*0.5
+        )
+    }
+
     func scale(proxy: GeometryProxy, value: Int) -> CGFloat {
         let rowNumber = value / gridItems.count
         let appIndex = value%apps.count
 
-        let x = (rowNumber % 2 == 0) ? proxy.frame(in: .global).midX + proxy.size.width/2 :
-        proxy.frame(in: .global).midX
+        // We need to consider the offset for even rows!
+        let x = (rowNumber % 2 == 0)
+        ? proxy.frame(in: .global).midX + proxy.size.width/2
+        : proxy.frame(in: .global).midX
 
         let y = proxy.frame(in: .global).midY
-        let center: CGPoint = CGPoint(
-            x: UIScreen.main.bounds.size.width*0.5,
-            y: UIScreen.main.bounds.size.height*0.5
-        )
-
         let maxDistanceToCenter = getDistanceFromEdgeToCenter(x: x, y: y)
 
-        let point = CGPoint(x: x, y: y)
-        let result = distanceBetweenPoints(p1: center, p2: point)
+        let currentPoint = CGPoint(x: x, y: y)
+        let distanceFromCurrentPointToCenter = distanceBetweenPoints(p1: center, p2: currentPoint)
 
+        // This creates a threshold for not just the pure center could get
+        // the max scaleValue.
+        let distanceDelta = min(
+            abs(distanceFromCurrentPointToCenter - maxDistanceToCenter),
+            maxDistanceToCenter*0.7
+        )
 
+        // Helps to get closer to scale 1.0 after the threshold.
+        let scalingFactor = 1.4
+        let scaleValue = distanceDelta/(maxDistanceToCenter) * scalingFactor
 
-        let total = min(abs(result - maxDistanceToCenter), maxDistanceToCenter*0.7)
-
-        let finalResult = total/(maxDistanceToCenter) * 1.4
-
-        return finalResult
+        return scaleValue
     }
 
     //distance2
     func getDistanceFromEdgeToCenter(x: CGFloat, y: CGFloat) -> CGFloat {
-        // This needs to be updated every time we rotate.
-        let center: CGPoint = CGPoint(
-            x: UIScreen.main.bounds.size.width*0.5,
-            y: UIScreen.main.bounds.size.height*0.5
-        )
-
         let m = (center.y - y)/(center.x - x)
         let angle = abs(atan(m) * 180 / .pi)
 
