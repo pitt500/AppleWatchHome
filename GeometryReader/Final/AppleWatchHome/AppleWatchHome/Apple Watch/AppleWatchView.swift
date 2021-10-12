@@ -26,7 +26,8 @@ struct AppleWatchView: View {
         ZStack {
             Color.black
                 .edgesIgnoringSafeArea([.all])
-            Axes()
+//            Axes()
+//                .edgesIgnoringSafeArea([.all])
             ScrollView([.horizontal, .vertical], showsIndicators: false) {
                 LazyVGrid(
                     columns: gridItems,
@@ -91,7 +92,7 @@ struct AppleWatchView: View {
 
     func scale(proxy: GeometryProxy, value: Int) -> CGFloat {
         let rowNumber = value / gridItems.count
-        let appIndex = value%apps.count
+        //let appIndex = value%apps.count
 
         // We need to consider the offset for even rows!
         let x = (rowNumber % 2 == 0)
@@ -120,12 +121,16 @@ struct AppleWatchView: View {
 
     //distance2
     func getDistanceFromEdgeToCenter(x: CGFloat, y: CGFloat, value: Int) -> CGFloat {
-        let m = (center.y - y)/(center.x - x)
-        let angle = abs(atan(m) * 180 / .pi)
+//        let m = (center.y - y)/(center.x - x)
+//        let angle = abs(atan(m) * 180 / .pi)
+        let m = slope(p1: CGPoint(x: x, y: y), p2: center)
+        let currentAngle = angle(slope: m)
 
-        //print(appName(value), angle)
 
-        if angle > deviceCornerAngle {
+        let edgeSlope = slope(p1: .zero, p2: center)
+        let deviceCornerAngle = angle(slope: edgeSlope)
+
+        if currentAngle > deviceCornerAngle {
             let yEdge = (y > center.y) ? center.y*2 : 0
             let xEdge = (yEdge - y)/m + x
             let edgePoint = CGPoint(x: xEdge, y: yEdge)
@@ -149,6 +154,14 @@ struct AppleWatchView: View {
             )
         )
     }
+
+    func slope(p1: CGPoint, p2: CGPoint) -> CGFloat {
+        return (p2.y - p1.y)/(p2.x - p1.x)
+    }
+
+    func angle(slope: CGFloat) -> CGFloat {
+        return abs(atan(slope) * 180 / .pi)
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -168,6 +181,13 @@ struct Axes: View {
                 path.addLine(to: CGPoint(x: geometry.frame(in: .global).midX, y: geometry.frame(in: .global).maxY))
 
                 path.addLine(to: CGPoint(x: geometry.frame(in: .global).midX, y: geometry.frame(in: .global).minY - 60))
+//                path.move(to: .zero)
+//                path.addLine(
+//                    to: CGPoint(
+//                        x: geometry.frame(in: .global).midX,
+//                        y: geometry.frame(in: .global).midY
+//                    )
+//                )
 
             }
             .stroke(Color.blue, lineWidth: 3)
