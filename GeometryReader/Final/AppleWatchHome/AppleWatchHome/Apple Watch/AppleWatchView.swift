@@ -81,7 +81,15 @@ struct AppleWatchView: View {
             y: UIScreen.main.bounds.size.height*0.5
         )
     }
-    
+
+//    var deviceCornerAngle: CGFloat {
+//        if UIDevice.current.userInterfaceIdiom == .pad {
+//            return (UIDevice.current.orientation == .portrait) ? 55 : 35
+//        } else {
+//            return (UIDevice.current.orientation == .portrait) ? 65 : 25
+//        }
+//    }
+
     func scale(proxy: GeometryProxy, value: Int) -> CGFloat {
         let rowNumber = value / gridItems.count
         //let appIndex = value%apps.count
