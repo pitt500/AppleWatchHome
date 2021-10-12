@@ -109,11 +109,11 @@ struct AppleWatchView: View {
         // the max scaleValue.
         let distanceDelta = min(
             abs(distanceFromCurrentPointToCenter - maxDistanceToCenter),
-            maxDistanceToCenter*0.7
+            maxDistanceToCenter*0.3
         )
 
         // Helps to get closer to scale 1.0 after the threshold.
-        let scalingFactor = 1.4
+        let scalingFactor = 3.3
         let scaleValue = distanceDelta/(maxDistanceToCenter) * scalingFactor
 
         return scaleValue
