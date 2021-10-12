@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B540F427271513860052A111 /* GeometryDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B540F426271513860052A111 /* GeometryDemoView.swift */; };
 		B5CC8435270498D700DFB13B /* AppleWatchHomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC8434270498D700DFB13B /* AppleWatchHomeApp.swift */; };
 		B5CC8437270498D700DFB13B /* AppleWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC8436270498D700DFB13B /* AppleWatchView.swift */; };
 		B5CC8439270498D800DFB13B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5CC8438270498D800DFB13B /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B540F426271513860052A111 /* GeometryDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryDemoView.swift; sourceTree = "<group>"; };
 		B5CC8431270498D700DFB13B /* AppleWatchHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleWatchHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5CC8434270498D700DFB13B /* AppleWatchHomeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleWatchHomeApp.swift; sourceTree = "<group>"; };
 		B5CC8436270498D700DFB13B /* AppleWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleWatchView.swift; sourceTree = "<group>"; };
@@ -36,6 +38,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B540F4252715136D0052A111 /* GeometryReader */ = {
+			isa = PBXGroup;
+			children = (
+				B540F426271513860052A111 /* GeometryDemoView.swift */,
+			);
+			path = GeometryReader;
+			sourceTree = "<group>";
+		};
 		B5CC8428270498D700DFB13B = {
 			isa = PBXGroup;
 			children = (
@@ -55,6 +65,7 @@
 		B5CC8433270498D700DFB13B /* AppleWatchHome */ = {
 			isa = PBXGroup;
 			children = (
+				B540F4252715136D0052A111 /* GeometryReader */,
 				B5CC84452704C1C800DFB13B /* Apple Watch */,
 				B5CC844227049E2E00DFB13B /* Grids */,
 				B5CC8434270498D700DFB13B /* AppleWatchHomeApp.swift */,
@@ -159,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B540F427271513860052A111 /* GeometryDemoView.swift in Sources */,
 				B5CC8437270498D700DFB13B /* AppleWatchView.swift in Sources */,
 				B5CC844427049E4600DFB13B /* GridView.swift in Sources */,
 				B5CC84472704D02E00DFB13B /* AppIcons.swift in Sources */,
