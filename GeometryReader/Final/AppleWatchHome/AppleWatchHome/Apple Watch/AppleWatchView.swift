@@ -80,6 +80,14 @@ struct AppleWatchView: View {
         )
     }
 
+    var deviceCornerAngle: CGFloat {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return (UIDevice.current.orientation == .portrait) ? 55 : 35
+        } else {
+            return (UIDevice.current.orientation == .portrait) ? 65 : 25
+        }
+    }
+
     func scale(proxy: GeometryProxy, value: Int) -> CGFloat {
         let rowNumber = value / gridItems.count
         let appIndex = value%apps.count
@@ -90,7 +98,7 @@ struct AppleWatchView: View {
         : proxy.frame(in: .global).midX
 
         let y = proxy.frame(in: .global).midY
-        let maxDistanceToCenter = getDistanceFromEdgeToCenter(x: x, y: y)
+        let maxDistanceToCenter = getDistanceFromEdgeToCenter(x: x, y: y, value: value)
 
         let currentPoint = CGPoint(x: x, y: y)
         let distanceFromCurrentPointToCenter = distanceBetweenPoints(p1: center, p2: currentPoint)
@@ -110,13 +118,13 @@ struct AppleWatchView: View {
     }
 
     //distance2
-    func getDistanceFromEdgeToCenter(x: CGFloat, y: CGFloat) -> CGFloat {
+    func getDistanceFromEdgeToCenter(x: CGFloat, y: CGFloat, value: Int) -> CGFloat {
         let m = (center.y - y)/(center.x - x)
         let angle = abs(atan(m) * 180 / .pi)
 
-        let ipadAngle: CGFloat = 35
+        //print(appName(value), angle)
 
-        if angle > ipadAngle {
+        if angle > deviceCornerAngle {
             let yEdge = (y > center.y) ? center.y*2 : 0
             let xEdge = (yEdge - y)/m + x
             let edgePoint = CGPoint(x: xEdge, y: yEdge)
