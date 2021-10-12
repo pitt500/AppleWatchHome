@@ -51,7 +51,6 @@ struct AppleWatchView: View {
                         }
                         // You need to add height
                         .frame(
-                            width: Self.size,
                             height: Self.size
                         )
                     }
