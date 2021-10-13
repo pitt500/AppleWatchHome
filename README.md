@@ -16,4 +16,4 @@ TBD
 - Swift 5.5+
 
 Learn mode about Swift and SwiftUI in [Swift && Tips](https://www.youtube.com/c/SwiftandTips)
-[My Twitter for daily updates & content](https://twitter.com/swiftandtips)
+My Twitter for daily updates & content [@swiftandtips](https://twitter.com/swiftandtips)
