@@ -92,7 +92,6 @@ struct AppleWatchView: View {
 
     func scale(proxy: GeometryProxy, value: Int) -> CGFloat {
         let rowNumber = value / gridItems.count
-        //let appIndex = value%apps.count
 
         // We need to consider the offset for even rows!
         let x = (rowNumber % 2 == 0)
@@ -119,13 +118,9 @@ struct AppleWatchView: View {
         return scaleValue
     }
 
-    //distance2
     func getDistanceFromEdgeToCenter(x: CGFloat, y: CGFloat, value: Int) -> CGFloat {
-//        let m = (center.y - y)/(center.x - x)
-//        let angle = abs(atan(m) * 180 / .pi)
         let m = slope(p1: CGPoint(x: x, y: y), p2: center)
         let currentAngle = angle(slope: m)
-
 
         let edgeSlope = slope(p1: .zero, p2: center)
         let deviceCornerAngle = angle(slope: edgeSlope)
@@ -140,6 +135,7 @@ struct AppleWatchView: View {
             let xEdge = (x > center.x) ? center.x*2 : 0
             let yEdge = m * (xEdge - x) + y
             let edgePoint = CGPoint(x: xEdge, y: yEdge)
+
             return distanceBetweenPoints(p1: center, p2: edgePoint)
         }
     }
@@ -181,14 +177,6 @@ struct Axes: View {
                 path.addLine(to: CGPoint(x: geometry.frame(in: .global).midX, y: geometry.frame(in: .global).maxY))
 
                 path.addLine(to: CGPoint(x: geometry.frame(in: .global).midX, y: geometry.frame(in: .global).minY - 60))
-//                path.move(to: .zero)
-//                path.addLine(
-//                    to: CGPoint(
-//                        x: geometry.frame(in: .global).midX,
-//                        y: geometry.frame(in: .global).midY
-//                    )
-//                )
-
             }
             .stroke(Color.blue, lineWidth: 3)
         }
