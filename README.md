@@ -15,5 +15,4 @@ TBD
 - iOS 15+
 - Swift 5.5+
 
-Learn mode about Swift and SwiftUI in [Swift && Tips](https://www.youtube.com/c/SwiftandTips)
-My Twitter for daily updates & content [@swiftandtips](https://twitter.com/swiftandtips)
+Check out [Swift && Tips](https://www.youtube.com/c/SwiftandTips) in youtube for more about Swift and SwiftUI, and my Twitter for daily updates & content [@swiftandtips](https://twitter.com/swiftandtips).
