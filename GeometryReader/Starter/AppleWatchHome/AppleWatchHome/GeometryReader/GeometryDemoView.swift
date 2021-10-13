@@ -9,7 +9,13 @@ import SwiftUI
 
 struct GeometryDemoView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color.red
+            Color.green
+                .padding(40)
+            Color.blue
+                .padding(80)
+        }
     }
 }
 
