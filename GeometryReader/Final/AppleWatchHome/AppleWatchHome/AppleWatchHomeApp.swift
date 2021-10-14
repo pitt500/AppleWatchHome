@@ -11,7 +11,7 @@ import SwiftUI
 struct AppleWatchHomeApp: App {
     var body: some Scene {
         WindowGroup {
-            GeometryDemoView()
+            AppleWatchView()
         }
     }
 }
