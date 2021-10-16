@@ -39,7 +39,6 @@ struct AppleWatchView: View {
                             Image(appName(value))
                                 .resizable()
                                 .cornerRadius(Self.size/2)
-                                .frame(height: Self.size)
                                 .scaleEffect(
                                     scale(
                                         proxy: proxy,
@@ -82,6 +81,7 @@ struct AppleWatchView: View {
         )
     }
 
+    // This was my hardcoded approach... really bad for the future!
 //    var deviceCornerAngle: CGFloat {
 //        if UIDevice.current.userInterfaceIdiom == .pad {
 //            return (UIDevice.current.orientation == .portrait) ? 55 : 35
@@ -99,7 +99,7 @@ struct AppleWatchView: View {
         : proxy.frame(in: .global).midX
 
         let y = proxy.frame(in: .global).midY
-        let maxDistanceToCenter = getDistanceFromEdgeToCenter(x: x, y: y, value: value)
+        let maxDistanceToCenter = getDistanceFromEdgeToCenter(x: x, y: y)
 
         let currentPoint = CGPoint(x: x, y: y)
         let distanceFromCurrentPointToCenter = distanceBetweenPoints(p1: center, p2: currentPoint)
@@ -118,7 +118,7 @@ struct AppleWatchView: View {
         return scaleValue
     }
 
-    func getDistanceFromEdgeToCenter(x: CGFloat, y: CGFloat, value: Int) -> CGFloat {
+    func getDistanceFromEdgeToCenter(x: CGFloat, y: CGFloat) -> CGFloat {
         let m = slope(p1: CGPoint(x: x, y: y), p2: center)
         let currentAngle = angle(slope: m)
 
